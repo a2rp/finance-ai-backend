@@ -8,12 +8,12 @@ exports.authLimiter = rateLimit({
 
 exports.transactionLimiter = rateLimit({
     windowMs: 5 * 60 * 1000,
-    max: 20,
+    max: 50,
     message: "Too many requests. Please try again later.",
 });
 
 exports.aiLimiter = rateLimit({
     windowMs: 1 * 60 * 1000,
-    max: 10,
+    max: 50,
     message: "Too many AI requests. Please wait.",
 });
