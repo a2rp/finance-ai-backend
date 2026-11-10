@@ -11,8 +11,8 @@ const {
 
 const router = express.Router();
 
-// ✅ Always define fixed routes BEFORE dynamic ones
-router.route("/clear").delete(protect, clearAllTransactions); // 👈 MOVE THIS ABOVE
+router.get("/summary", protect, getSummary);
+router.delete("/clear", protect, clearAllTransactions);
 
 router.route("/").post(protect, addTransaction).get(protect, getTransactions);
 
@@ -20,7 +20,5 @@ router
     .route("/:id")
     .delete(protect, deleteTransaction)
     .put(protect, updateTransaction);
-
-router.get("/summary", protect, getSummary);
 
 module.exports = router;

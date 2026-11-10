@@ -6,11 +6,12 @@ const {
     updateUserProfile,
 } = require("../controllers/user.controller");
 const { protect } = require("../middleware/auth.middleware");
+const { registerLimiter, loginLimiter } = require("../middleware/rateLimiters");
 
 const router = express.Router();
 
-router.post("/register", registerUser);
-router.post("/login", loginUser);
+router.post("/register", registerLimiter, registerUser);
+router.post("/login", loginLimiter, loginUser);
 router.get("/me", protect, getUserProfile);
 router.put("/profile", protect, updateUserProfile);
 
