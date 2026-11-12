@@ -1,5 +1,6 @@
 {
     "name": "finance-ai-backend",
+    "private": true,
     "version": "1.0.0",
     "description": "Express and MongoDB API for authenticated personal finance tracking and AI-assisted budgeting insights.",
     "main": "index.js",
